@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+filename="$HOME/.wallpaper"
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+# create the filename if it doesn't exist
+if [[ ! -e $filename ]]
+then
+  touch $filename
+fi
+
+cd $SCRIPT_DIR && cd ..
+
+declare -a generic_wallpapers
+generic_wallpapers=( Generic/* )
+generic_wallpaper_count=${#generic_wallpapers[*]}
+
+index=$( shuf -i 0-"$generic_wallpaper_count" -n 1 )
+if [[ $index != $generic_wallpaper_count ]]
+then
+  current_wallpaper=${generic_wallpapers[$index]}
+  feh --bg-scale --bg-fill $current_wallpaper
+fi
+
