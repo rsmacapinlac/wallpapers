@@ -24,6 +24,7 @@ index=$( shuf -i 0-"$wallpaper_count" -n 1 )
 if [[ $index != $wallpaper_count ]]
 then
   current_wallpaper=${wallpapers[$index]}
+  wal -i $current_wallpaper -q
   feh --bg-scale --bg-fill $current_wallpaper
 fi
 
