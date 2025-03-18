@@ -26,6 +26,6 @@ then
   current_wallpaper=${wallpapers[$index]}
   wal -c
   wal -i $current_wallpaper -q
-  # feh --bg-scale --bg-fill $current_wallpaper
+  feh --bg-scale --bg-fill $current_wallpaper
 fi
 
